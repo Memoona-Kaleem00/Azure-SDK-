@@ -570,13 +570,13 @@ namespace Azure.AI.Vision.Face
         /// <exception cref="ArgumentNullException"> <paramref name="largeFaceListId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="largeFaceListId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <include file="Docs/LargeFaceListClient.xml" path="doc/members/member[@name='GetTrainingStatusAsync(string,CancellationToken)']/*" />
-        public virtual async Task<Response<TrainingResult>> GetTrainingStatusAsync(string largeFaceListId, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<FaceTrainingResult>> GetTrainingStatusAsync(string largeFaceListId, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(largeFaceListId, nameof(largeFaceListId));
 
             RequestContext context = FromCancellationToken(cancellationToken);
             Response response = await GetTrainingStatusAsync(largeFaceListId, context).ConfigureAwait(false);
-            return Response.FromValue(TrainingResult.FromResponse(response), response);
+            return Response.FromValue(FaceTrainingResult.FromResponse(response), response);
         }
 
         /// <summary> Please refer to https://learn.microsoft.com/rest/api/face/face-list-operations/get-large-face-list-training-status for more details. </summary>
@@ -585,13 +585,13 @@ namespace Azure.AI.Vision.Face
         /// <exception cref="ArgumentNullException"> <paramref name="largeFaceListId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="largeFaceListId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <include file="Docs/LargeFaceListClient.xml" path="doc/members/member[@name='GetTrainingStatus(string,CancellationToken)']/*" />
-        public virtual Response<TrainingResult> GetTrainingStatus(string largeFaceListId, CancellationToken cancellationToken = default)
+        public virtual Response<FaceTrainingResult> GetTrainingStatus(string largeFaceListId, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(largeFaceListId, nameof(largeFaceListId));
 
             RequestContext context = FromCancellationToken(cancellationToken);
             Response response = GetTrainingStatus(largeFaceListId, context);
-            return Response.FromValue(TrainingResult.FromResponse(response), response);
+            return Response.FromValue(FaceTrainingResult.FromResponse(response), response);
         }
 
         /// <summary>

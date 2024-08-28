@@ -105,7 +105,7 @@ namespace Azure.AI.Vision.Face
 
         /// <summary> Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes. </summary>
         /// <param name="uri"> URL of input image. </param>
-        /// <param name="detectionModel"> The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'. </param>
+        /// <param name="detectionModel"> The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'. 'detection_03' is recommended since its accuracy is improved on smaller faces (64x64 pixels) and rotated face orientations. </param>
         /// <param name="recognitionModel"> The 'recognitionModel' associated with the detected faceIds. Supported 'recognitionModel' values include 'recognition_01', 'recognition_02', 'recognition_03' or 'recognition_04'. The default value is 'recognition_01'. 'recognition_04' is recommended since its accuracy is improved on faces wearing masks compared with 'recognition_03', and its overall accuracy is improved compared with 'recognition_01' and 'recognition_02'. </param>
         /// <param name="returnFaceId"> Return faceIds of the detected faces or not. The default value is true. </param>
         /// <param name="returnFaceAttributes"> Analyze and return the one or more specified face attributes in the comma-separated string like 'returnFaceAttributes=headPose,glasses'. Face attribute analysis has additional computational and time cost. </param>
@@ -135,7 +135,7 @@ namespace Azure.AI.Vision.Face
 
         /// <summary> Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes. </summary>
         /// <param name="uri"> URL of input image. </param>
-        /// <param name="detectionModel"> The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'. </param>
+        /// <param name="detectionModel"> The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'. 'detection_03' is recommended since its accuracy is improved on smaller faces (64x64 pixels) and rotated face orientations. </param>
         /// <param name="recognitionModel"> The 'recognitionModel' associated with the detected faceIds. Supported 'recognitionModel' values include 'recognition_01', 'recognition_02', 'recognition_03' or 'recognition_04'. The default value is 'recognition_01'. 'recognition_04' is recommended since its accuracy is improved on faces wearing masks compared with 'recognition_03', and its overall accuracy is improved compared with 'recognition_01' and 'recognition_02'. </param>
         /// <param name="returnFaceId"> Return faceIds of the detected faces or not. The default value is true. </param>
         /// <param name="returnFaceAttributes"> Analyze and return the one or more specified face attributes in the comma-separated string like 'returnFaceAttributes=headPose,glasses'. Face attribute analysis has additional computational and time cost. </param>
@@ -179,7 +179,7 @@ namespace Azure.AI.Vision.Face
         /// </list>
         /// </summary>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="detectionModel"> The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'. Allowed values: "detection_01" | "detection_02" | "detection_03". </param>
+        /// <param name="detectionModel"> The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'. 'detection_03' is recommended since its accuracy is improved on smaller faces (64x64 pixels) and rotated face orientations. Allowed values: "detection_01" | "detection_02" | "detection_03". </param>
         /// <param name="recognitionModel"> The 'recognitionModel' associated with the detected faceIds. Supported 'recognitionModel' values include 'recognition_01', 'recognition_02', 'recognition_03' or 'recognition_04'. The default value is 'recognition_01'. 'recognition_04' is recommended since its accuracy is improved on faces wearing masks compared with 'recognition_03', and its overall accuracy is improved compared with 'recognition_01' and 'recognition_02'. Allowed values: "recognition_01" | "recognition_02" | "recognition_03" | "recognition_04". </param>
         /// <param name="returnFaceId"> Return faceIds of the detected faces or not. The default value is true. </param>
         /// <param name="returnFaceAttributes"> Analyze and return the one or more specified face attributes in the comma-separated string like 'returnFaceAttributes=headPose,glasses'. Face attribute analysis has additional computational and time cost. </param>
@@ -224,7 +224,7 @@ namespace Azure.AI.Vision.Face
         /// </list>
         /// </summary>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="detectionModel"> The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'. Allowed values: "detection_01" | "detection_02" | "detection_03". </param>
+        /// <param name="detectionModel"> The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'. 'detection_03' is recommended since its accuracy is improved on smaller faces (64x64 pixels) and rotated face orientations. Allowed values: "detection_01" | "detection_02" | "detection_03". </param>
         /// <param name="recognitionModel"> The 'recognitionModel' associated with the detected faceIds. Supported 'recognitionModel' values include 'recognition_01', 'recognition_02', 'recognition_03' or 'recognition_04'. The default value is 'recognition_01'. 'recognition_04' is recommended since its accuracy is improved on faces wearing masks compared with 'recognition_03', and its overall accuracy is improved compared with 'recognition_01' and 'recognition_02'. Allowed values: "recognition_01" | "recognition_02" | "recognition_03" | "recognition_04". </param>
         /// <param name="returnFaceId"> Return faceIds of the detected faces or not. The default value is true. </param>
         /// <param name="returnFaceAttributes"> Analyze and return the one or more specified face attributes in the comma-separated string like 'returnFaceAttributes=headPose,glasses'. Face attribute analysis has additional computational and time cost. </param>
@@ -255,7 +255,7 @@ namespace Azure.AI.Vision.Face
 
         /// <summary> Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes. </summary>
         /// <param name="imageContent"> The input image binary. </param>
-        /// <param name="detectionModel"> The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'. </param>
+        /// <param name="detectionModel"> The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'. 'detection_03' is recommended since its accuracy is improved on smaller faces (64x64 pixels) and rotated face orientations. </param>
         /// <param name="recognitionModel"> The 'recognitionModel' associated with the detected faceIds. Supported 'recognitionModel' values include 'recognition_01', 'recognition_02', 'recognition_03' or 'recognition_04'. The default value is 'recognition_01'. 'recognition_04' is recommended since its accuracy is improved on faces wearing masks compared with 'recognition_03', and its overall accuracy is improved compared with 'recognition_01' and 'recognition_02'. </param>
         /// <param name="returnFaceId"> Return faceIds of the detected faces or not. The default value is true. </param>
         /// <param name="returnFaceAttributes"> Analyze and return the one or more specified face attributes in the comma-separated string like 'returnFaceAttributes=headPose,glasses'. Face attribute analysis has additional computational and time cost. </param>
@@ -285,7 +285,7 @@ namespace Azure.AI.Vision.Face
 
         /// <summary> Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes. </summary>
         /// <param name="imageContent"> The input image binary. </param>
-        /// <param name="detectionModel"> The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'. </param>
+        /// <param name="detectionModel"> The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'. 'detection_03' is recommended since its accuracy is improved on smaller faces (64x64 pixels) and rotated face orientations. </param>
         /// <param name="recognitionModel"> The 'recognitionModel' associated with the detected faceIds. Supported 'recognitionModel' values include 'recognition_01', 'recognition_02', 'recognition_03' or 'recognition_04'. The default value is 'recognition_01'. 'recognition_04' is recommended since its accuracy is improved on faces wearing masks compared with 'recognition_03', and its overall accuracy is improved compared with 'recognition_01' and 'recognition_02'. </param>
         /// <param name="returnFaceId"> Return faceIds of the detected faces or not. The default value is true. </param>
         /// <param name="returnFaceAttributes"> Analyze and return the one or more specified face attributes in the comma-separated string like 'returnFaceAttributes=headPose,glasses'. Face attribute analysis has additional computational and time cost. </param>
@@ -329,7 +329,7 @@ namespace Azure.AI.Vision.Face
         /// </list>
         /// </summary>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="detectionModel"> The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'. Allowed values: "detection_01" | "detection_02" | "detection_03". </param>
+        /// <param name="detectionModel"> The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'. 'detection_03' is recommended since its accuracy is improved on smaller faces (64x64 pixels) and rotated face orientations. Allowed values: "detection_01" | "detection_02" | "detection_03". </param>
         /// <param name="recognitionModel"> The 'recognitionModel' associated with the detected faceIds. Supported 'recognitionModel' values include 'recognition_01', 'recognition_02', 'recognition_03' or 'recognition_04'. The default value is 'recognition_01'. 'recognition_04' is recommended since its accuracy is improved on faces wearing masks compared with 'recognition_03', and its overall accuracy is improved compared with 'recognition_01' and 'recognition_02'. Allowed values: "recognition_01" | "recognition_02" | "recognition_03" | "recognition_04". </param>
         /// <param name="returnFaceId"> Return faceIds of the detected faces or not. The default value is true. </param>
         /// <param name="returnFaceAttributes"> Analyze and return the one or more specified face attributes in the comma-separated string like 'returnFaceAttributes=headPose,glasses'. Face attribute analysis has additional computational and time cost. </param>
@@ -374,7 +374,7 @@ namespace Azure.AI.Vision.Face
         /// </list>
         /// </summary>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="detectionModel"> The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'. Allowed values: "detection_01" | "detection_02" | "detection_03". </param>
+        /// <param name="detectionModel"> The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'. 'detection_03' is recommended since its accuracy is improved on smaller faces (64x64 pixels) and rotated face orientations. Allowed values: "detection_01" | "detection_02" | "detection_03". </param>
         /// <param name="recognitionModel"> The 'recognitionModel' associated with the detected faceIds. Supported 'recognitionModel' values include 'recognition_01', 'recognition_02', 'recognition_03' or 'recognition_04'. The default value is 'recognition_01'. 'recognition_04' is recommended since its accuracy is improved on faces wearing masks compared with 'recognition_03', and its overall accuracy is improved compared with 'recognition_01' and 'recognition_02'. Allowed values: "recognition_01" | "recognition_02" | "recognition_03" | "recognition_04". </param>
         /// <param name="returnFaceId"> Return faceIds of the detected faces or not. The default value is true. </param>
         /// <param name="returnFaceAttributes"> Analyze and return the one or more specified face attributes in the comma-separated string like 'returnFaceAttributes=headPose,glasses'. Face attribute analysis has additional computational and time cost. </param>
@@ -1024,7 +1024,7 @@ namespace Azure.AI.Vision.Face
         /// <exception cref="ArgumentNullException"> <paramref name="faceIds"/> or <paramref name="personGroupId"/> is null. </exception>
         /// <remarks> Please refer to https://learn.microsoft.com/rest/api/face/face-recognition-operations/identify-from-person-group for more details. </remarks>
         /// <include file="Docs/FaceClient.xml" path="doc/members/member[@name='IdentifyFromPersonGroupAsync(IEnumerable{Guid},string,int?,float?,CancellationToken)']/*" />
-        public virtual async Task<Response<IReadOnlyList<IdentificationResult>>> IdentifyFromPersonGroupAsync(IEnumerable<Guid> faceIds, string personGroupId, int? maxNumOfCandidatesReturned = null, float? confidenceThreshold = null, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<IReadOnlyList<FaceIdentificationResult>>> IdentifyFromPersonGroupAsync(IEnumerable<Guid> faceIds, string personGroupId, int? maxNumOfCandidatesReturned = null, float? confidenceThreshold = null, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNull(faceIds, nameof(faceIds));
             Argument.AssertNotNull(personGroupId, nameof(personGroupId));
@@ -1032,12 +1032,12 @@ namespace Azure.AI.Vision.Face
             IdentifyFromPersonGroupRequest identifyFromPersonGroupRequest = new IdentifyFromPersonGroupRequest(faceIds.ToList(), personGroupId, maxNumOfCandidatesReturned, confidenceThreshold, null);
             RequestContext context = FromCancellationToken(cancellationToken);
             Response response = await IdentifyFromPersonGroupAsync(identifyFromPersonGroupRequest.ToRequestContent(), context).ConfigureAwait(false);
-            IReadOnlyList<IdentificationResult> value = default;
+            IReadOnlyList<FaceIdentificationResult> value = default;
             using var document = await JsonDocument.ParseAsync(response.ContentStream, default, cancellationToken).ConfigureAwait(false);
-            List<IdentificationResult> array = new List<IdentificationResult>();
+            List<FaceIdentificationResult> array = new List<FaceIdentificationResult>();
             foreach (var item in document.RootElement.EnumerateArray())
             {
-                array.Add(IdentificationResult.DeserializeIdentificationResult(item));
+                array.Add(FaceIdentificationResult.DeserializeFaceIdentificationResult(item));
             }
             value = array;
             return Response.FromValue(value, response);
@@ -1052,7 +1052,7 @@ namespace Azure.AI.Vision.Face
         /// <exception cref="ArgumentNullException"> <paramref name="faceIds"/> or <paramref name="personGroupId"/> is null. </exception>
         /// <remarks> Please refer to https://learn.microsoft.com/rest/api/face/face-recognition-operations/identify-from-person-group for more details. </remarks>
         /// <include file="Docs/FaceClient.xml" path="doc/members/member[@name='IdentifyFromPersonGroup(IEnumerable{Guid},string,int?,float?,CancellationToken)']/*" />
-        public virtual Response<IReadOnlyList<IdentificationResult>> IdentifyFromPersonGroup(IEnumerable<Guid> faceIds, string personGroupId, int? maxNumOfCandidatesReturned = null, float? confidenceThreshold = null, CancellationToken cancellationToken = default)
+        public virtual Response<IReadOnlyList<FaceIdentificationResult>> IdentifyFromPersonGroup(IEnumerable<Guid> faceIds, string personGroupId, int? maxNumOfCandidatesReturned = null, float? confidenceThreshold = null, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNull(faceIds, nameof(faceIds));
             Argument.AssertNotNull(personGroupId, nameof(personGroupId));
@@ -1060,12 +1060,12 @@ namespace Azure.AI.Vision.Face
             IdentifyFromPersonGroupRequest identifyFromPersonGroupRequest = new IdentifyFromPersonGroupRequest(faceIds.ToList(), personGroupId, maxNumOfCandidatesReturned, confidenceThreshold, null);
             RequestContext context = FromCancellationToken(cancellationToken);
             Response response = IdentifyFromPersonGroup(identifyFromPersonGroupRequest.ToRequestContent(), context);
-            IReadOnlyList<IdentificationResult> value = default;
+            IReadOnlyList<FaceIdentificationResult> value = default;
             using var document = JsonDocument.Parse(response.ContentStream);
-            List<IdentificationResult> array = new List<IdentificationResult>();
+            List<FaceIdentificationResult> array = new List<FaceIdentificationResult>();
             foreach (var item in document.RootElement.EnumerateArray())
             {
-                array.Add(IdentificationResult.DeserializeIdentificationResult(item));
+                array.Add(FaceIdentificationResult.DeserializeFaceIdentificationResult(item));
             }
             value = array;
             return Response.FromValue(value, response);
@@ -1158,7 +1158,7 @@ namespace Azure.AI.Vision.Face
         /// <exception cref="ArgumentNullException"> <paramref name="faceIds"/> or <paramref name="largePersonGroupId"/> is null. </exception>
         /// <remarks> Please refer to https://learn.microsoft.com/rest/api/face/face-recognition-operations/identify-from-large-person-group for more details. </remarks>
         /// <include file="Docs/FaceClient.xml" path="doc/members/member[@name='IdentifyFromLargePersonGroupAsync(IEnumerable{Guid},string,int?,float?,CancellationToken)']/*" />
-        public virtual async Task<Response<IReadOnlyList<IdentificationResult>>> IdentifyFromLargePersonGroupAsync(IEnumerable<Guid> faceIds, string largePersonGroupId, int? maxNumOfCandidatesReturned = null, float? confidenceThreshold = null, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<IReadOnlyList<FaceIdentificationResult>>> IdentifyFromLargePersonGroupAsync(IEnumerable<Guid> faceIds, string largePersonGroupId, int? maxNumOfCandidatesReturned = null, float? confidenceThreshold = null, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNull(faceIds, nameof(faceIds));
             Argument.AssertNotNull(largePersonGroupId, nameof(largePersonGroupId));
@@ -1166,12 +1166,12 @@ namespace Azure.AI.Vision.Face
             IdentifyFromLargePersonGroupRequest identifyFromLargePersonGroupRequest = new IdentifyFromLargePersonGroupRequest(faceIds.ToList(), largePersonGroupId, maxNumOfCandidatesReturned, confidenceThreshold, null);
             RequestContext context = FromCancellationToken(cancellationToken);
             Response response = await IdentifyFromLargePersonGroupAsync(identifyFromLargePersonGroupRequest.ToRequestContent(), context).ConfigureAwait(false);
-            IReadOnlyList<IdentificationResult> value = default;
+            IReadOnlyList<FaceIdentificationResult> value = default;
             using var document = await JsonDocument.ParseAsync(response.ContentStream, default, cancellationToken).ConfigureAwait(false);
-            List<IdentificationResult> array = new List<IdentificationResult>();
+            List<FaceIdentificationResult> array = new List<FaceIdentificationResult>();
             foreach (var item in document.RootElement.EnumerateArray())
             {
-                array.Add(IdentificationResult.DeserializeIdentificationResult(item));
+                array.Add(FaceIdentificationResult.DeserializeFaceIdentificationResult(item));
             }
             value = array;
             return Response.FromValue(value, response);
@@ -1186,7 +1186,7 @@ namespace Azure.AI.Vision.Face
         /// <exception cref="ArgumentNullException"> <paramref name="faceIds"/> or <paramref name="largePersonGroupId"/> is null. </exception>
         /// <remarks> Please refer to https://learn.microsoft.com/rest/api/face/face-recognition-operations/identify-from-large-person-group for more details. </remarks>
         /// <include file="Docs/FaceClient.xml" path="doc/members/member[@name='IdentifyFromLargePersonGroup(IEnumerable{Guid},string,int?,float?,CancellationToken)']/*" />
-        public virtual Response<IReadOnlyList<IdentificationResult>> IdentifyFromLargePersonGroup(IEnumerable<Guid> faceIds, string largePersonGroupId, int? maxNumOfCandidatesReturned = null, float? confidenceThreshold = null, CancellationToken cancellationToken = default)
+        public virtual Response<IReadOnlyList<FaceIdentificationResult>> IdentifyFromLargePersonGroup(IEnumerable<Guid> faceIds, string largePersonGroupId, int? maxNumOfCandidatesReturned = null, float? confidenceThreshold = null, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNull(faceIds, nameof(faceIds));
             Argument.AssertNotNull(largePersonGroupId, nameof(largePersonGroupId));
@@ -1194,12 +1194,12 @@ namespace Azure.AI.Vision.Face
             IdentifyFromLargePersonGroupRequest identifyFromLargePersonGroupRequest = new IdentifyFromLargePersonGroupRequest(faceIds.ToList(), largePersonGroupId, maxNumOfCandidatesReturned, confidenceThreshold, null);
             RequestContext context = FromCancellationToken(cancellationToken);
             Response response = IdentifyFromLargePersonGroup(identifyFromLargePersonGroupRequest.ToRequestContent(), context);
-            IReadOnlyList<IdentificationResult> value = default;
+            IReadOnlyList<FaceIdentificationResult> value = default;
             using var document = JsonDocument.Parse(response.ContentStream);
-            List<IdentificationResult> array = new List<IdentificationResult>();
+            List<FaceIdentificationResult> array = new List<FaceIdentificationResult>();
             foreach (var item in document.RootElement.EnumerateArray())
             {
-                array.Add(IdentificationResult.DeserializeIdentificationResult(item));
+                array.Add(FaceIdentificationResult.DeserializeFaceIdentificationResult(item));
             }
             value = array;
             return Response.FromValue(value, response);

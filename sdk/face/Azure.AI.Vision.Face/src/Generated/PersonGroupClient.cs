@@ -570,13 +570,13 @@ namespace Azure.AI.Vision.Face
         /// <exception cref="ArgumentNullException"> <paramref name="personGroupId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="personGroupId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <include file="Docs/PersonGroupClient.xml" path="doc/members/member[@name='GetTrainingStatusAsync(string,CancellationToken)']/*" />
-        public virtual async Task<Response<TrainingResult>> GetTrainingStatusAsync(string personGroupId, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<FaceTrainingResult>> GetTrainingStatusAsync(string personGroupId, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(personGroupId, nameof(personGroupId));
 
             RequestContext context = FromCancellationToken(cancellationToken);
             Response response = await GetTrainingStatusAsync(personGroupId, context).ConfigureAwait(false);
-            return Response.FromValue(TrainingResult.FromResponse(response), response);
+            return Response.FromValue(FaceTrainingResult.FromResponse(response), response);
         }
 
         /// <summary> Please refer to https://learn.microsoft.com/rest/api/face/person-group-operations/get-person-group-training-status for more details. </summary>
@@ -585,13 +585,13 @@ namespace Azure.AI.Vision.Face
         /// <exception cref="ArgumentNullException"> <paramref name="personGroupId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="personGroupId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <include file="Docs/PersonGroupClient.xml" path="doc/members/member[@name='GetTrainingStatus(string,CancellationToken)']/*" />
-        public virtual Response<TrainingResult> GetTrainingStatus(string personGroupId, CancellationToken cancellationToken = default)
+        public virtual Response<FaceTrainingResult> GetTrainingStatus(string personGroupId, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(personGroupId, nameof(personGroupId));
 
             RequestContext context = FromCancellationToken(cancellationToken);
             Response response = GetTrainingStatus(personGroupId, context);
-            return Response.FromValue(TrainingResult.FromResponse(response), response);
+            return Response.FromValue(FaceTrainingResult.FromResponse(response), response);
         }
 
         /// <summary>

@@ -19,181 +19,99 @@ namespace Azure.AI.Vision.Face.Samples
     {
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public void Example_FaceList_Create_ShortVersion()
+        public void Example_FaceList_Create_CreateFaceList()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
             using RequestContent content = RequestContent.Create(new
             {
-                name = "<name>",
-            });
-            Response response = client.Create("<faceListId>", content);
-
-            Console.WriteLine(response.Status);
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceList_Create_ShortVersion_Async()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            using RequestContent content = RequestContent.Create(new
-            {
-                name = "<name>",
-            });
-            Response response = await client.CreateAsync("<faceListId>", content);
-
-            Console.WriteLine(response.Status);
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public void Example_FaceList_Create_ShortVersion_Convenience()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            Response response = client.Create("<faceListId>", "<name>");
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceList_Create_ShortVersion_Convenience_Async()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            Response response = await client.CreateAsync("<faceListId>", "<name>");
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public void Example_FaceList_Create_AllParameters()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            using RequestContent content = RequestContent.Create(new
-            {
-                name = "<name>",
-                userData = "<userData>",
+                name = "your_face_list_name",
+                userData = "your_user_data",
                 recognitionModel = "recognition_01",
             });
-            Response response = client.Create("<faceListId>", content);
+            Response response = client.Create("your_face_list_id", content);
 
             Console.WriteLine(response.Status);
         }
 
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceList_Create_AllParameters_Async()
+        public async Task Example_FaceList_Create_CreateFaceList_Async()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
             using RequestContent content = RequestContent.Create(new
             {
-                name = "<name>",
-                userData = "<userData>",
+                name = "your_face_list_name",
+                userData = "your_user_data",
                 recognitionModel = "recognition_01",
             });
-            Response response = await client.CreateAsync("<faceListId>", content);
+            Response response = await client.CreateAsync("your_face_list_id", content);
 
             Console.WriteLine(response.Status);
         }
 
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public void Example_FaceList_Create_AllParameters_Convenience()
+        public void Example_FaceList_Create_CreateFaceList_Convenience()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
-            Response response = client.Create("<faceListId>", "<name>", userData: "<userData>", recognitionModel: FaceRecognitionModel.Recognition01);
+            Response response = client.Create("your_face_list_id", "your_face_list_name");
         }
 
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceList_Create_AllParameters_Convenience_Async()
+        public async Task Example_FaceList_Create_CreateFaceList_Convenience_Async()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
-            Response response = await client.CreateAsync("<faceListId>", "<name>", userData: "<userData>", recognitionModel: FaceRecognitionModel.Recognition01);
+            Response response = await client.CreateAsync("your_face_list_id", "your_face_list_name");
         }
 
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public void Example_FaceList_Delete_ShortVersion()
+        public void Example_FaceList_Delete_DeleteFaceList()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
-            Response response = client.Delete("<faceListId>");
+            Response response = client.Delete("your_face_list_id");
 
             Console.WriteLine(response.Status);
         }
 
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceList_Delete_ShortVersion_Async()
+        public async Task Example_FaceList_Delete_DeleteFaceList_Async()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
-            Response response = await client.DeleteAsync("<faceListId>");
+            Response response = await client.DeleteAsync("your_face_list_id");
 
             Console.WriteLine(response.Status);
         }
 
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public void Example_FaceList_Delete_AllParameters()
+        public void Example_FaceList_GetFaceList_GetFaceList()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
-            Response response = client.Delete("<faceListId>");
-
-            Console.WriteLine(response.Status);
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceList_Delete_AllParameters_Async()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            Response response = await client.DeleteAsync("<faceListId>");
-
-            Console.WriteLine(response.Status);
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public void Example_FaceList_GetFaceList_ShortVersion()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            Response response = client.GetFaceList("<faceListId>", null, null);
+            Response response = client.GetFaceList("your_face_list_id", true, null);
 
             JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
             Console.WriteLine(result.GetProperty("name").ToString());
@@ -202,13 +120,13 @@ namespace Azure.AI.Vision.Face.Samples
 
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceList_GetFaceList_ShortVersion_Async()
+        public async Task Example_FaceList_GetFaceList_GetFaceList_Async()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
-            Response response = await client.GetFaceListAsync("<faceListId>", null, null);
+            Response response = await client.GetFaceListAsync("your_face_list_id", true, null);
 
             JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
             Console.WriteLine(result.GetProperty("name").ToString());
@@ -217,159 +135,71 @@ namespace Azure.AI.Vision.Face.Samples
 
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public void Example_FaceList_GetFaceList_ShortVersion_Convenience()
+        public void Example_FaceList_GetFaceList_GetFaceList_Convenience()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
-            Response<FaceList> response = client.GetFaceList("<faceListId>");
+            Response<FaceList> response = client.GetFaceList("your_face_list_id");
         }
 
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceList_GetFaceList_ShortVersion_Convenience_Async()
+        public async Task Example_FaceList_GetFaceList_GetFaceList_Convenience_Async()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
-            Response<FaceList> response = await client.GetFaceListAsync("<faceListId>");
+            Response<FaceList> response = await client.GetFaceListAsync("your_face_list_id");
         }
 
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public void Example_FaceList_GetFaceList_AllParameters()
+        public void Example_FaceList_Update_UpdateFaceList()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            Response response = client.GetFaceList("<faceListId>", true, null);
-
-            JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-            Console.WriteLine(result.GetProperty("name").ToString());
-            Console.WriteLine(result.GetProperty("userData").ToString());
-            Console.WriteLine(result.GetProperty("recognitionModel").ToString());
-            Console.WriteLine(result.GetProperty("faceListId").ToString());
-            Console.WriteLine(result.GetProperty("persistedFaces")[0].GetProperty("persistedFaceId").ToString());
-            Console.WriteLine(result.GetProperty("persistedFaces")[0].GetProperty("userData").ToString());
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceList_GetFaceList_AllParameters_Async()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            Response response = await client.GetFaceListAsync("<faceListId>", true, null);
-
-            JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-            Console.WriteLine(result.GetProperty("name").ToString());
-            Console.WriteLine(result.GetProperty("userData").ToString());
-            Console.WriteLine(result.GetProperty("recognitionModel").ToString());
-            Console.WriteLine(result.GetProperty("faceListId").ToString());
-            Console.WriteLine(result.GetProperty("persistedFaces")[0].GetProperty("persistedFaceId").ToString());
-            Console.WriteLine(result.GetProperty("persistedFaces")[0].GetProperty("userData").ToString());
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public void Example_FaceList_GetFaceList_AllParameters_Convenience()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            Response<FaceList> response = client.GetFaceList("<faceListId>", returnRecognitionModel: true);
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceList_GetFaceList_AllParameters_Convenience_Async()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            Response<FaceList> response = await client.GetFaceListAsync("<faceListId>", returnRecognitionModel: true);
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public void Example_FaceList_Update_ShortVersion()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            using RequestContent content = RequestContent.Create(new object());
-            Response response = client.Update("<faceListId>", content);
-
-            Console.WriteLine(response.Status);
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceList_Update_ShortVersion_Async()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            using RequestContent content = RequestContent.Create(new object());
-            Response response = await client.UpdateAsync("<faceListId>", content);
-
-            Console.WriteLine(response.Status);
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public void Example_FaceList_Update_AllParameters()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
             using RequestContent content = RequestContent.Create(new
             {
-                name = "<name>",
-                userData = "<userData>",
+                name = "your_face_list_name",
+                userData = "your_user_data",
             });
-            Response response = client.Update("<faceListId>", content);
+            Response response = client.Update("your_face_list_id", content);
 
             Console.WriteLine(response.Status);
         }
 
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceList_Update_AllParameters_Async()
+        public async Task Example_FaceList_Update_UpdateFaceList_Async()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
             using RequestContent content = RequestContent.Create(new
             {
-                name = "<name>",
-                userData = "<userData>",
+                name = "your_face_list_name",
+                userData = "your_user_data",
             });
-            Response response = await client.UpdateAsync("<faceListId>", content);
+            Response response = await client.UpdateAsync("your_face_list_id", content);
 
             Console.WriteLine(response.Status);
         }
 
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public void Example_FaceList_GetFaceLists_ShortVersion()
+        public void Example_FaceList_GetFaceLists_GetFaceLists()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
-            Response response = client.GetFaceLists(null, null);
+            Response response = client.GetFaceLists(true, null);
 
             JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
             Console.WriteLine(result[0].GetProperty("name").ToString());
@@ -378,13 +208,13 @@ namespace Azure.AI.Vision.Face.Samples
 
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceList_GetFaceLists_ShortVersion_Async()
+        public async Task Example_FaceList_GetFaceLists_GetFaceLists_Async()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
-            Response response = await client.GetFaceListsAsync(null, null);
+            Response response = await client.GetFaceListsAsync(true, null);
 
             JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
             Console.WriteLine(result[0].GetProperty("name").ToString());
@@ -393,130 +223,48 @@ namespace Azure.AI.Vision.Face.Samples
 
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public void Example_FaceList_GetFaceLists_ShortVersion_Convenience()
+        public void Example_FaceList_GetFaceLists_GetFaceLists_Convenience()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
             Response<IReadOnlyList<FaceListItem>> response = client.GetFaceLists();
         }
 
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceList_GetFaceLists_ShortVersion_Convenience_Async()
+        public async Task Example_FaceList_GetFaceLists_GetFaceLists_Convenience_Async()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
             Response<IReadOnlyList<FaceListItem>> response = await client.GetFaceListsAsync();
         }
 
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public void Example_FaceList_GetFaceLists_AllParameters()
+        public void Example_FaceListFace_DeleteFace_DeleteFaceFromFaceList()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
-            Response response = client.GetFaceLists(true, null);
-
-            JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-            Console.WriteLine(result[0].GetProperty("name").ToString());
-            Console.WriteLine(result[0].GetProperty("userData").ToString());
-            Console.WriteLine(result[0].GetProperty("recognitionModel").ToString());
-            Console.WriteLine(result[0].GetProperty("faceListId").ToString());
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceList_GetFaceLists_AllParameters_Async()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            Response response = await client.GetFaceListsAsync(true, null);
-
-            JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
-            Console.WriteLine(result[0].GetProperty("name").ToString());
-            Console.WriteLine(result[0].GetProperty("userData").ToString());
-            Console.WriteLine(result[0].GetProperty("recognitionModel").ToString());
-            Console.WriteLine(result[0].GetProperty("faceListId").ToString());
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public void Example_FaceList_GetFaceLists_AllParameters_Convenience()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            Response<IReadOnlyList<FaceListItem>> response = client.GetFaceLists(returnRecognitionModel: true);
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceList_GetFaceLists_AllParameters_Convenience_Async()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            Response<IReadOnlyList<FaceListItem>> response = await client.GetFaceListsAsync(returnRecognitionModel: true);
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public void Example_FaceListFace_DeleteFace_ShortVersion()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            Response response = client.DeleteFace("<faceListId>", Guid.Parse("73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a"));
+            Response response = client.DeleteFace("your_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
 
             Console.WriteLine(response.Status);
         }
 
         [Test]
         [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceListFace_DeleteFace_ShortVersion_Async()
+        public async Task Example_FaceListFace_DeleteFace_DeleteFaceFromFaceList_Async()
         {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
+            Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
+            FaceListClient client = new FaceAdministrationClient(endpoint, credential).GetFaceListClient();
 
-            Response response = await client.DeleteFaceAsync("<faceListId>", Guid.Parse("73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a"));
-
-            Console.WriteLine(response.Status);
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public void Example_FaceListFace_DeleteFace_AllParameters()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            Response response = client.DeleteFace("<faceListId>", Guid.Parse("73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a"));
-
-            Console.WriteLine(response.Status);
-        }
-
-        [Test]
-        [Ignore("Only validating compilation of examples")]
-        public async Task Example_FaceListFace_DeleteFace_AllParameters_Async()
-        {
-            Uri endpoint = new Uri("<https://my-service.azure.com>");
-            AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            FaceListClient client = new FaceServiceClient(endpoint, credential).GetFaceListClientClient();
-
-            Response response = await client.DeleteFaceAsync("<faceListId>", Guid.Parse("73f411fe-4f43-4b4b-9cbd-6828d8f4cf9a"));
+            Response response = await client.DeleteFaceAsync("your_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
 
             Console.WriteLine(response.Status);
         }

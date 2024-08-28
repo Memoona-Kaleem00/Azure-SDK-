@@ -49,9 +49,9 @@ namespace Azure.AI.Vision.Face.Samples
             var endpoint = TestEnvironment.GetUrlVariable("FACE_ENDPOINT");
 #endif
             DefaultAzureCredential credential = new DefaultAzureCredential();
-            var client = new LargePersonGroupClient(endpoint, credential);
+            var groupClient = new LargePersonGroupClient(endpoint, credential);
             #endregion
-            return client;
+            return groupClient;
         }
 
         public LargeFaceListClient CreateLargeFaceListClient()
@@ -63,9 +63,9 @@ namespace Azure.AI.Vision.Face.Samples
             var endpoint = TestEnvironment.GetUrlVariable("FACE_ENDPOINT");
 #endif
             DefaultAzureCredential credential = new DefaultAzureCredential();
-            var client = new LargeFaceListClient(endpoint, credential);
+            var listClient = new LargeFaceListClient(endpoint, credential);
             #endregion
-            return client;
+            return listClient;
         }
 
         public FaceClient CreateClientWithKey()

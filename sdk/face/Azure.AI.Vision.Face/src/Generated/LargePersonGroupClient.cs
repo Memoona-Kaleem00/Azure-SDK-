@@ -571,13 +571,13 @@ namespace Azure.AI.Vision.Face
         /// <exception cref="ArgumentException"> <paramref name="largePersonGroupId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <remarks> Please refer to https://learn.microsoft.com/rest/api/face/person-group-operations/get-large-person-group-training-status for more details. </remarks>
         /// <include file="Docs/LargePersonGroupClient.xml" path="doc/members/member[@name='GetTrainingStatusAsync(string,CancellationToken)']/*" />
-        public virtual async Task<Response<TrainingResult>> GetTrainingStatusAsync(string largePersonGroupId, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<FaceTrainingResult>> GetTrainingStatusAsync(string largePersonGroupId, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(largePersonGroupId, nameof(largePersonGroupId));
 
             RequestContext context = FromCancellationToken(cancellationToken);
             Response response = await GetTrainingStatusAsync(largePersonGroupId, context).ConfigureAwait(false);
-            return Response.FromValue(TrainingResult.FromResponse(response), response);
+            return Response.FromValue(FaceTrainingResult.FromResponse(response), response);
         }
 
         /// <summary> To check Large Person Group training status completed or still ongoing. Large Person Group training is an asynchronous operation triggered by "Train Large Person Group" API. </summary>
@@ -587,13 +587,13 @@ namespace Azure.AI.Vision.Face
         /// <exception cref="ArgumentException"> <paramref name="largePersonGroupId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <remarks> Please refer to https://learn.microsoft.com/rest/api/face/person-group-operations/get-large-person-group-training-status for more details. </remarks>
         /// <include file="Docs/LargePersonGroupClient.xml" path="doc/members/member[@name='GetTrainingStatus(string,CancellationToken)']/*" />
-        public virtual Response<TrainingResult> GetTrainingStatus(string largePersonGroupId, CancellationToken cancellationToken = default)
+        public virtual Response<FaceTrainingResult> GetTrainingStatus(string largePersonGroupId, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(largePersonGroupId, nameof(largePersonGroupId));
 
             RequestContext context = FromCancellationToken(cancellationToken);
             Response response = GetTrainingStatus(largePersonGroupId, context);
-            return Response.FromValue(TrainingResult.FromResponse(response), response);
+            return Response.FromValue(FaceTrainingResult.FromResponse(response), response);
         }
 
         /// <summary>

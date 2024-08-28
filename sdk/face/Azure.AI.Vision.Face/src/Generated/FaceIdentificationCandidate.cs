@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace Azure.AI.Vision.Face
 {
     /// <summary> Candidate for identify call. </summary>
-    public partial class IdentificationCandidate
+    public partial class FaceIdentificationCandidate
     {
         /// <summary>
         /// Keeps track of any properties unknown to the library.
@@ -45,28 +45,28 @@ namespace Azure.AI.Vision.Face
         /// </summary>
         private IDictionary<string, BinaryData> _serializedAdditionalRawData;
 
-        /// <summary> Initializes a new instance of <see cref="IdentificationCandidate"/>. </summary>
+        /// <summary> Initializes a new instance of <see cref="FaceIdentificationCandidate"/>. </summary>
         /// <param name="personId"> personId of candidate person. </param>
         /// <param name="confidence"> Confidence value of the candidate. The higher confidence, the more similar. Range between [0,1]. </param>
-        internal IdentificationCandidate(Guid personId, float confidence)
+        internal FaceIdentificationCandidate(Guid personId, float confidence)
         {
             PersonId = personId;
             Confidence = confidence;
         }
 
-        /// <summary> Initializes a new instance of <see cref="IdentificationCandidate"/>. </summary>
+        /// <summary> Initializes a new instance of <see cref="FaceIdentificationCandidate"/>. </summary>
         /// <param name="personId"> personId of candidate person. </param>
         /// <param name="confidence"> Confidence value of the candidate. The higher confidence, the more similar. Range between [0,1]. </param>
         /// <param name="serializedAdditionalRawData"> Keeps track of any properties unknown to the library. </param>
-        internal IdentificationCandidate(Guid personId, float confidence, IDictionary<string, BinaryData> serializedAdditionalRawData)
+        internal FaceIdentificationCandidate(Guid personId, float confidence, IDictionary<string, BinaryData> serializedAdditionalRawData)
         {
             PersonId = personId;
             Confidence = confidence;
             _serializedAdditionalRawData = serializedAdditionalRawData;
         }
 
-        /// <summary> Initializes a new instance of <see cref="IdentificationCandidate"/> for deserialization. </summary>
-        internal IdentificationCandidate()
+        /// <summary> Initializes a new instance of <see cref="FaceIdentificationCandidate"/> for deserialization. </summary>
+        internal FaceIdentificationCandidate()
         {
         }
 
