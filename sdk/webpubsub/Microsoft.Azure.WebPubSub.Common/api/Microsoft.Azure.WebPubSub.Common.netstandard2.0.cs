@@ -1,11 +1,11 @@
 namespace Microsoft.Azure.WebPubSub.Common
 {
-    public sealed partial class ConnectedEventRequest : Microsoft.Azure.WebPubSub.Common.WebPubSubEventRequest
+    public partial class ConnectedEventRequest : Microsoft.Azure.WebPubSub.Common.WebPubSubEventRequest
     {
         public ConnectedEventRequest(Microsoft.Azure.WebPubSub.Common.WebPubSubConnectionContext context) : base (default(Microsoft.Azure.WebPubSub.Common.WebPubSubConnectionContext)) { }
     }
     [System.Runtime.Serialization.DataContractAttribute]
-    public sealed partial class ConnectEventRequest : Microsoft.Azure.WebPubSub.Common.WebPubSubEventRequest
+    public partial class ConnectEventRequest : Microsoft.Azure.WebPubSub.Common.WebPubSubEventRequest
     {
         public ConnectEventRequest(Microsoft.Azure.WebPubSub.Common.WebPubSubConnectionContext context, System.Collections.Generic.IReadOnlyDictionary<string, string[]> claims, System.Collections.Generic.IReadOnlyDictionary<string, string[]> query, System.Collections.Generic.IEnumerable<string> subprotocols, System.Collections.Generic.IEnumerable<Microsoft.Azure.WebPubSub.Common.WebPubSubClientCertificate> certificates) : base (default(Microsoft.Azure.WebPubSub.Common.WebPubSubConnectionContext)) { }
         public ConnectEventRequest(Microsoft.Azure.WebPubSub.Common.WebPubSubConnectionContext context, System.Collections.Generic.IReadOnlyDictionary<string, string[]> claims, System.Collections.Generic.IReadOnlyDictionary<string, string[]> query, System.Collections.Generic.IEnumerable<string> subprotocols, System.Collections.Generic.IEnumerable<Microsoft.Azure.WebPubSub.Common.WebPubSubClientCertificate> certificates, System.Collections.Generic.IReadOnlyDictionary<string, string[]> headers) : base (default(Microsoft.Azure.WebPubSub.Common.WebPubSubConnectionContext)) { }
@@ -24,7 +24,7 @@ namespace Microsoft.Azure.WebPubSub.Common
         [System.Runtime.Serialization.DataMemberAttribute(Name="subprotocols")]
         [System.Text.Json.Serialization.JsonPropertyNameAttribute("subprotocols")]
         public System.Collections.Generic.IReadOnlyList<string> Subprotocols { get { throw null; } }
-        public Microsoft.Azure.WebPubSub.Common.EventErrorResponse CreateErrorResponse(Microsoft.Azure.WebPubSub.Common.WebPubSubErrorCode code, string message) { throw null; }
+        public virtual Microsoft.Azure.WebPubSub.Common.EventErrorResponse CreateErrorResponse(Microsoft.Azure.WebPubSub.Common.WebPubSubErrorCode code, string message) { throw null; }
         public Microsoft.Azure.WebPubSub.Common.ConnectEventResponse CreateResponse(string userId, System.Collections.Generic.IEnumerable<string> groups, string subprotocol, System.Collections.Generic.IEnumerable<string> roles) { throw null; }
     }
     [System.Runtime.Serialization.DataContractAttribute]
@@ -55,7 +55,7 @@ namespace Microsoft.Azure.WebPubSub.Common
         public void SetState(string key, object value) { }
     }
     [System.Runtime.Serialization.DataContractAttribute]
-    public sealed partial class DisconnectedEventRequest : Microsoft.Azure.WebPubSub.Common.WebPubSubEventRequest
+    public partial class DisconnectedEventRequest : Microsoft.Azure.WebPubSub.Common.WebPubSubEventRequest
     {
         public DisconnectedEventRequest(Microsoft.Azure.WebPubSub.Common.WebPubSubConnectionContext context, string reason) : base (default(Microsoft.Azure.WebPubSub.Common.WebPubSubConnectionContext)) { }
         [System.Runtime.Serialization.DataMemberAttribute(Name="reason")]
@@ -75,6 +75,79 @@ namespace Microsoft.Azure.WebPubSub.Common
         [System.Runtime.Serialization.DataMemberAttribute(Name="errorMessage")]
         [System.Text.Json.Serialization.JsonPropertyNameAttribute("errorMessage")]
         public string ErrorMessage { get { throw null; } set { } }
+    }
+    [System.Runtime.Serialization.DataContractAttribute]
+    public partial class MqttConnectEventErrorResponse : Microsoft.Azure.WebPubSub.Common.EventErrorResponse
+    {
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+        public MqttConnectEventErrorResponse(Microsoft.Azure.WebPubSub.Common.MqttConnectEventErrorResponseProperties mqtt) { }
+        [System.Runtime.Serialization.DataMemberAttribute(Name="mqtt")]
+        [System.Text.Json.Serialization.JsonPropertyNameAttribute("mqtt")]
+        public Microsoft.Azure.WebPubSub.Common.MqttConnectEventErrorResponseProperties Mqtt { get { throw null; } }
+    }
+    [System.Runtime.Serialization.DataContractAttribute]
+    public partial class MqttConnectEventErrorResponseProperties
+    {
+        internal MqttConnectEventErrorResponseProperties() { }
+        [System.Runtime.Serialization.DataMemberAttribute(Name="code")]
+        [System.Text.Json.Serialization.JsonPropertyNameAttribute("code")]
+        public int Code { get { throw null; } }
+        [System.Runtime.Serialization.DataMemberAttribute(Name="reason")]
+        [System.Text.Json.Serialization.JsonPropertyNameAttribute("reason")]
+        public string? Reason { get { throw null; } set { } }
+    }
+    [System.Runtime.Serialization.DataContractAttribute]
+    public partial class MqttConnectEventRequest : Microsoft.Azure.WebPubSub.Common.ConnectEventRequest
+    {
+        public MqttConnectEventRequest(Microsoft.Azure.WebPubSub.Common.MqttConnectionContext context, System.Collections.Generic.IReadOnlyDictionary<string, string[]> claims, System.Collections.Generic.IReadOnlyDictionary<string, string[]> query, System.Collections.Generic.IEnumerable<Microsoft.Azure.WebPubSub.Common.WebPubSubClientCertificate> certificates, System.Collections.Generic.IReadOnlyDictionary<string, string[]> headers, Microsoft.Azure.WebPubSub.Common.MqttConnectProperties mqtt) : base (default(Microsoft.Azure.WebPubSub.Common.WebPubSubConnectionContext), default(System.Collections.Generic.IReadOnlyDictionary<string, string[]>), default(System.Collections.Generic.IReadOnlyDictionary<string, string[]>), default(System.Collections.Generic.IEnumerable<string>), default(System.Collections.Generic.IEnumerable<Microsoft.Azure.WebPubSub.Common.WebPubSubClientCertificate>)) { }
+        [System.Runtime.Serialization.DataMemberAttribute(Name="mqtt")]
+        [System.Text.Json.Serialization.JsonPropertyNameAttribute("mqtt")]
+        public Microsoft.Azure.WebPubSub.Common.MqttConnectProperties Mqtt { get { throw null; } }
+        public override Microsoft.Azure.WebPubSub.Common.EventErrorResponse CreateErrorResponse(Microsoft.Azure.WebPubSub.Common.WebPubSubErrorCode code, string? message = null) { throw null; }
+        public Microsoft.Azure.WebPubSub.Common.MqttConnectEventResponse CreateMqttResponse(string userId, System.Collections.Generic.IEnumerable<string> groups, System.Collections.Generic.IEnumerable<string> roles) { throw null; }
+    }
+    [System.Runtime.Serialization.DataContractAttribute]
+    public sealed partial class MqttConnectEventResponse : Microsoft.Azure.WebPubSub.Common.ConnectEventResponse
+    {
+        public MqttConnectEventResponse() { }
+        public MqttConnectEventResponse(string? userId, System.Collections.Generic.IEnumerable<string>? groups, System.Collections.Generic.IEnumerable<string>? roles) { }
+    }
+    [System.Runtime.Serialization.DataContractAttribute]
+    public partial class MqttConnectionContext : Microsoft.Azure.WebPubSub.Common.WebPubSubConnectionContext
+    {
+        public MqttConnectionContext(Microsoft.Azure.WebPubSub.Common.WebPubSubEventType eventType, string eventName, string hub, string connectionId, string physicalConnectionId, string? sessionId, string? userId = null, string? signature = null, string? origin = null, System.Collections.Generic.IReadOnlyDictionary<string, System.BinaryData>? connectionStates = null, System.Collections.Generic.IReadOnlyDictionary<string, string[]>? headers = null) : base (default(Microsoft.Azure.WebPubSub.Common.WebPubSubEventType), default(string), default(string), default(string), default(string), default(string), default(string), default(System.Collections.Generic.IReadOnlyDictionary<string, object>), default(System.Collections.Generic.IReadOnlyDictionary<string, string[]>)) { }
+        [System.Runtime.Serialization.DataMemberAttribute(Name="physicalConnectionId")]
+        [System.Text.Json.Serialization.JsonPropertyNameAttribute("physicalConnectionId")]
+        public string PhysicalConnectionId { get { throw null; } }
+        [System.Runtime.Serialization.DataMemberAttribute(Name="sessionId")]
+        [System.Text.Json.Serialization.JsonPropertyNameAttribute("sessionId")]
+        public string? SessionId { get { throw null; } }
+    }
+    [System.Runtime.Serialization.DataContractAttribute]
+    public partial class MqttConnectProperties
+    {
+        internal MqttConnectProperties() { }
+        [System.Runtime.Serialization.DataMemberAttribute(Name="password")]
+        [System.Text.Json.Serialization.JsonPropertyNameAttribute("password")]
+        public string? Password { get { throw null; } }
+        [System.Runtime.Serialization.DataMemberAttribute(Name="username")]
+        [System.Text.Json.Serialization.JsonPropertyNameAttribute("username")]
+        public string? Username { get { throw null; } }
+    }
+    [System.Runtime.Serialization.DataContractAttribute]
+    public partial class MqttDisconnectedEventRequest : Microsoft.Azure.WebPubSub.Common.DisconnectedEventRequest
+    {
+        public MqttDisconnectedEventRequest(Microsoft.Azure.WebPubSub.Common.MqttConnectionContext context, string reason, Microsoft.Azure.WebPubSub.Common.MqttDisconnectedEventRequestProperties mqtt) : base (default(Microsoft.Azure.WebPubSub.Common.WebPubSubConnectionContext), default(string)) { }
+        [System.Runtime.Serialization.DataMemberAttribute(Name="mqtt")]
+        [System.Text.Json.Serialization.JsonPropertyNameAttribute("mqtt")]
+        public Microsoft.Azure.WebPubSub.Common.MqttDisconnectedEventRequestProperties Mqtt { get { throw null; } }
+    }
+    [System.Runtime.Serialization.DataContractAttribute]
+    public partial class MqttDisconnectedEventRequestProperties
+    {
+        internal MqttDisconnectedEventRequestProperties() { }
+        [System.Runtime.Serialization.DataMemberAttribute(Name="initiatedByClient")]
+        public bool InitiatedByClient { get { throw null; } }
     }
     [System.Runtime.Serialization.DataContractAttribute]
     public sealed partial class PreflightRequest : Microsoft.Azure.WebPubSub.Common.WebPubSubEventRequest
@@ -122,9 +195,14 @@ namespace Microsoft.Azure.WebPubSub.Common
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
         public void SetState(string key, object value) { }
     }
+    [System.Runtime.Serialization.DataContractAttribute]
     public sealed partial class WebPubSubClientCertificate
     {
         public WebPubSubClientCertificate(string thumbprint) { }
+        [System.Runtime.Serialization.DataMemberAttribute(Name="content")]
+        [System.Text.Json.Serialization.JsonPropertyNameAttribute("content")]
+        public string? Content { get { throw null; } }
+        [System.Runtime.Serialization.DataMemberAttribute]
         [System.Text.Json.Serialization.JsonPropertyNameAttribute("thumbprint")]
         public string Thumbprint { get { throw null; } }
     }
