@@ -23,7 +23,7 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
             using RequestContent content = RequestContent.Create(new
             {
@@ -31,7 +31,7 @@ namespace Azure.AI.Vision.Face.Samples
                 userData = "your_user_data",
                 recognitionModel = "recognition_01",
             });
-            Response response = client.Create("your_large_face_list_id", content);
+            Response response = client.Create(content);
 
             Console.WriteLine(response.Status);
         }
@@ -42,7 +42,7 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
             using RequestContent content = RequestContent.Create(new
             {
@@ -50,7 +50,7 @@ namespace Azure.AI.Vision.Face.Samples
                 userData = "your_user_data",
                 recognitionModel = "recognition_01",
             });
-            Response response = await client.CreateAsync("your_large_face_list_id", content);
+            Response response = await client.CreateAsync(content);
 
             Console.WriteLine(response.Status);
         }
@@ -61,9 +61,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response response = client.Create("your_large_face_list_id", "your_large_face_list_name");
+            Response response = client.Create("your_large_face_list_name");
         }
 
         [Test]
@@ -72,9 +72,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response response = await client.CreateAsync("your_large_face_list_id", "your_large_face_list_name");
+            Response response = await client.CreateAsync("your_large_face_list_name");
         }
 
         [Test]
@@ -83,9 +83,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response response = client.Delete("your_large_face_list_id");
+            Response response = client.Delete();
 
             Console.WriteLine(response.Status);
         }
@@ -96,9 +96,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response response = await client.DeleteAsync("your_large_face_list_id");
+            Response response = await client.DeleteAsync();
 
             Console.WriteLine(response.Status);
         }
@@ -109,9 +109,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response response = client.GetLargeFaceList("your_large_face_list_id", true, null);
+            Response response = client.GetLargeFaceList(true, null);
 
             JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
             Console.WriteLine(result.GetProperty("name").ToString());
@@ -124,9 +124,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response response = await client.GetLargeFaceListAsync("your_large_face_list_id", true, null);
+            Response response = await client.GetLargeFaceListAsync(true, null);
 
             JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
             Console.WriteLine(result.GetProperty("name").ToString());
@@ -139,9 +139,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response<LargeFaceList> response = client.GetLargeFaceList("your_large_face_list_id");
+            Response<LargeFaceList> response = client.GetLargeFaceList();
         }
 
         [Test]
@@ -150,9 +150,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response<LargeFaceList> response = await client.GetLargeFaceListAsync("your_large_face_list_id");
+            Response<LargeFaceList> response = await client.GetLargeFaceListAsync();
         }
 
         [Test]
@@ -161,14 +161,14 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
             using RequestContent content = RequestContent.Create(new
             {
                 name = "your_large_face_list_name",
                 userData = "your_user_data",
             });
-            Response response = client.Update("your_large_face_list_id", content);
+            Response response = client.Update(content);
 
             Console.WriteLine(response.Status);
         }
@@ -179,14 +179,14 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
             using RequestContent content = RequestContent.Create(new
             {
                 name = "your_large_face_list_name",
                 userData = "your_user_data",
             });
-            Response response = await client.UpdateAsync("your_large_face_list_id", content);
+            Response response = await client.UpdateAsync(content);
 
             Console.WriteLine(response.Status);
         }
@@ -197,7 +197,7 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient(null);
 
             Response response = client.GetLargeFaceLists("my_list_id", 20, true, null);
 
@@ -212,7 +212,7 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient(null);
 
             Response response = await client.GetLargeFaceListsAsync("my_list_id", 20, true, null);
 
@@ -227,7 +227,7 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient(null);
 
             Response<IReadOnlyList<LargeFaceList>> response = client.GetLargeFaceLists();
         }
@@ -238,7 +238,7 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient(null);
 
             Response<IReadOnlyList<LargeFaceList>> response = await client.GetLargeFaceListsAsync();
         }
@@ -249,9 +249,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response response = client.GetTrainingStatus("your_large_face_list_id", null);
+            Response response = client.GetTrainingStatus(null);
 
             JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
             Console.WriteLine(result.GetProperty("status").ToString());
@@ -266,9 +266,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response response = await client.GetTrainingStatusAsync("your_large_face_list_id", null);
+            Response response = await client.GetTrainingStatusAsync(null);
 
             JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
             Console.WriteLine(result.GetProperty("status").ToString());
@@ -283,9 +283,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response<FaceTrainingResult> response = client.GetTrainingStatus("your_large_face_list_id");
+            Response<FaceTrainingResult> response = client.GetTrainingStatus();
         }
 
         [Test]
@@ -294,9 +294,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response<FaceTrainingResult> response = await client.GetTrainingStatusAsync("your_large_face_list_id");
+            Response<FaceTrainingResult> response = await client.GetTrainingStatusAsync();
         }
 
         [Test]
@@ -305,9 +305,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response response = client.DeleteFace("your_large_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
+            Response response = client.DeleteFace(Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
 
             Console.WriteLine(response.Status);
         }
@@ -318,9 +318,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response response = await client.DeleteFaceAsync("your_large_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
+            Response response = await client.DeleteFaceAsync(Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
 
             Console.WriteLine(response.Status);
         }
@@ -331,9 +331,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response response = client.GetFace("your_large_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"), null);
+            Response response = client.GetFace(Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"), null);
 
             JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
             Console.WriteLine(result.GetProperty("persistedFaceId").ToString());
@@ -345,9 +345,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response response = await client.GetFaceAsync("your_large_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"), null);
+            Response response = await client.GetFaceAsync(Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"), null);
 
             JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
             Console.WriteLine(result.GetProperty("persistedFaceId").ToString());
@@ -359,9 +359,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response<LargeFaceListFace> response = client.GetFace("your_large_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
+            Response<LargeFaceListFace> response = client.GetFace(Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
         }
 
         [Test]
@@ -370,9 +370,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response<LargeFaceListFace> response = await client.GetFaceAsync("your_large_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
+            Response<LargeFaceListFace> response = await client.GetFaceAsync(Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
         }
 
         [Test]
@@ -381,13 +381,13 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
             using RequestContent content = RequestContent.Create(new
             {
                 userData = "your_user_data",
             });
-            Response response = client.UpdateFace("your_large_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"), content);
+            Response response = client.UpdateFace(Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"), content);
 
             Console.WriteLine(response.Status);
         }
@@ -398,13 +398,13 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
             using RequestContent content = RequestContent.Create(new
             {
                 userData = "your_user_data",
             });
-            Response response = await client.UpdateFaceAsync("your_large_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"), content);
+            Response response = await client.UpdateFaceAsync(Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"), content);
 
             Console.WriteLine(response.Status);
         }
@@ -415,9 +415,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response response = client.GetFaces("your_large_face_list_id", "00000000-0000-0000-0000-000000000000", 20, null);
+            Response response = client.GetFaces("00000000-0000-0000-0000-000000000000", 20, null);
 
             JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
             Console.WriteLine(result[0].GetProperty("persistedFaceId").ToString());
@@ -429,9 +429,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response response = await client.GetFacesAsync("your_large_face_list_id", "00000000-0000-0000-0000-000000000000", 20, null);
+            Response response = await client.GetFacesAsync("00000000-0000-0000-0000-000000000000", 20, null);
 
             JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
             Console.WriteLine(result[0].GetProperty("persistedFaceId").ToString());
@@ -443,9 +443,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response<IReadOnlyList<LargeFaceListFace>> response = client.GetFaces("your_large_face_list_id");
+            Response<IReadOnlyList<LargeFaceListFace>> response = client.GetFaces();
         }
 
         [Test]
@@ -454,9 +454,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Response<IReadOnlyList<LargeFaceListFace>> response = await client.GetFacesAsync("your_large_face_list_id");
+            Response<IReadOnlyList<LargeFaceListFace>> response = await client.GetFacesAsync();
         }
 
         [Test]
@@ -465,9 +465,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Operation operation = client.Train(WaitUntil.Completed, "your_large_face_list_id");
+            Operation operation = client.Train(WaitUntil.Completed);
         }
 
         [Test]
@@ -476,9 +476,9 @@ namespace Azure.AI.Vision.Face.Samples
         {
             Uri endpoint = new Uri("<endpoint>");
             AzureKeyCredential credential = new AzureKeyCredential("<key>");
-            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+            LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-            Operation operation = await client.TrainAsync(WaitUntil.Completed, "your_large_face_list_id");
+            Operation operation = await client.TrainAsync(WaitUntil.Completed);
         }
     }
 }

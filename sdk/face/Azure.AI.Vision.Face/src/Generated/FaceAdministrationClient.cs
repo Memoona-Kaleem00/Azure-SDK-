@@ -6,7 +6,6 @@
 #nullable disable
 
 using System;
-using System.Threading;
 using Azure.Core;
 using Azure.Core.Pipeline;
 
@@ -99,19 +98,26 @@ namespace Azure.AI.Vision.Face
             _apiVersion = options.Version;
         }
 
-        private LargeFaceListClient _cachedLargeFaceListClient;
-        private LargePersonGroupClient _cachedLargePersonGroupClient;
-
         /// <summary> Initializes a new instance of LargeFaceListClient. </summary>
-        public virtual LargeFaceListClient GetLargeFaceListClient()
+        /// <param name="largeFaceListId"> Valid character is letter in lower case or digit or '-' or '_', maximum length is 64. </param>
+        /// <exception cref="ArgumentNullException"> <paramref name="largeFaceListId"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="largeFaceListId"/> is an empty string, and was expected to be non-empty. </exception>
+        public virtual LargeFaceListClient GetLargeFaceListClient(string largeFaceListId)
         {
-            return Volatile.Read(ref _cachedLargeFaceListClient) ?? Interlocked.CompareExchange(ref _cachedLargeFaceListClient, new LargeFaceListClient(ClientDiagnostics, _pipeline, _keyCredential, _tokenCredential, _endpoint, _apiVersion), null) ?? _cachedLargeFaceListClient;
+            Argument.AssertNotNullOrEmpty(largeFaceListId, nameof(largeFaceListId));
+
+            return new LargeFaceListClient(ClientDiagnostics, _pipeline, _keyCredential, _tokenCredential, _endpoint, largeFaceListId, _apiVersion);
         }
 
         /// <summary> Initializes a new instance of LargePersonGroupClient. </summary>
-        public virtual LargePersonGroupClient GetLargePersonGroupClient()
+        /// <param name="largePersonGroupId"> ID of the container. </param>
+        /// <exception cref="ArgumentNullException"> <paramref name="largePersonGroupId"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="largePersonGroupId"/> is an empty string, and was expected to be non-empty. </exception>
+        public virtual LargePersonGroupClient GetLargePersonGroupClient(string largePersonGroupId)
         {
-            return Volatile.Read(ref _cachedLargePersonGroupClient) ?? Interlocked.CompareExchange(ref _cachedLargePersonGroupClient, new LargePersonGroupClient(ClientDiagnostics, _pipeline, _keyCredential, _tokenCredential, _endpoint, _apiVersion), null) ?? _cachedLargePersonGroupClient;
+            Argument.AssertNotNullOrEmpty(largePersonGroupId, nameof(largePersonGroupId));
+
+            return new LargePersonGroupClient(ClientDiagnostics, _pipeline, _keyCredential, _tokenCredential, _endpoint, largePersonGroupId, _apiVersion);
         }
     }
 }

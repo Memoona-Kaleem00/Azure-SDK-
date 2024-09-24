@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doc>
   <members>
-    <member name="CreateAsync(string,string,string,FaceRecognitionModel?,CancellationToken)">
+    <member name="CreateAsync(string,string,FaceRecognitionModel?,CancellationToken)">
       <example>
 This sample shows how to call CreateAsync.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response response = await client.CreateAsync("your_large_face_list_id", "your_large_face_list_name");
+Response response = await client.CreateAsync("your_large_face_list_name");
 ]]></code></example>
     </member>
-    <member name="Create(string,string,string,FaceRecognitionModel?,CancellationToken)">
+    <member name="Create(string,string,FaceRecognitionModel?,CancellationToken)">
       <example>
 This sample shows how to call Create.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response response = client.Create("your_large_face_list_id", "your_large_face_list_name");
+Response response = client.Create("your_large_face_list_name");
 ]]></code></example>
     </member>
-    <member name="CreateAsync(string,RequestContent,RequestContext)">
+    <member name="CreateAsync(RequestContent,RequestContext)">
       <example>
 This sample shows how to call CreateAsync.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
 using RequestContent content = RequestContent.Create(new
 {
@@ -37,18 +37,18 @@ using RequestContent content = RequestContent.Create(new
     userData = "your_user_data",
     recognitionModel = "recognition_01",
 });
-Response response = await client.CreateAsync("your_large_face_list_id", content);
+Response response = await client.CreateAsync(content);
 
 Console.WriteLine(response.Status);
 ]]></code></example>
     </member>
-    <member name="Create(string,RequestContent,RequestContext)">
+    <member name="Create(RequestContent,RequestContext)">
       <example>
 This sample shows how to call Create.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
 using RequestContent content = RequestContent.Create(new
 {
@@ -56,121 +56,121 @@ using RequestContent content = RequestContent.Create(new
     userData = "your_user_data",
     recognitionModel = "recognition_01",
 });
-Response response = client.Create("your_large_face_list_id", content);
+Response response = client.Create(content);
 
 Console.WriteLine(response.Status);
 ]]></code></example>
     </member>
-    <member name="DeleteAsync(string,RequestContext)">
+    <member name="DeleteAsync(RequestContext)">
       <example>
 This sample shows how to call DeleteAsync.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response response = await client.DeleteAsync("your_large_face_list_id");
+Response response = await client.DeleteAsync();
 
 Console.WriteLine(response.Status);
 ]]></code></example>
     </member>
-    <member name="Delete(string,RequestContext)">
+    <member name="Delete(RequestContext)">
       <example>
 This sample shows how to call Delete.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response response = client.Delete("your_large_face_list_id");
+Response response = client.Delete();
 
 Console.WriteLine(response.Status);
 ]]></code></example>
     </member>
-    <member name="GetLargeFaceListAsync(string,bool?,CancellationToken)">
+    <member name="GetLargeFaceListAsync(bool?,CancellationToken)">
       <example>
 This sample shows how to call GetLargeFaceListAsync.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response<LargeFaceList> response = await client.GetLargeFaceListAsync("your_large_face_list_id");
+Response<LargeFaceList> response = await client.GetLargeFaceListAsync();
 ]]></code></example>
     </member>
-    <member name="GetLargeFaceList(string,bool?,CancellationToken)">
+    <member name="GetLargeFaceList(bool?,CancellationToken)">
       <example>
 This sample shows how to call GetLargeFaceList.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response<LargeFaceList> response = client.GetLargeFaceList("your_large_face_list_id");
+Response<LargeFaceList> response = client.GetLargeFaceList();
 ]]></code></example>
     </member>
-    <member name="GetLargeFaceListAsync(string,bool?,RequestContext)">
+    <member name="GetLargeFaceListAsync(bool?,RequestContext)">
       <example>
 This sample shows how to call GetLargeFaceListAsync and parse the result.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response response = await client.GetLargeFaceListAsync("your_large_face_list_id", true, null);
+Response response = await client.GetLargeFaceListAsync(true, null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("largeFaceListId").ToString());
 ]]></code></example>
     </member>
-    <member name="GetLargeFaceList(string,bool?,RequestContext)">
+    <member name="GetLargeFaceList(bool?,RequestContext)">
       <example>
 This sample shows how to call GetLargeFaceList and parse the result.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response response = client.GetLargeFaceList("your_large_face_list_id", true, null);
+Response response = client.GetLargeFaceList(true, null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("name").ToString());
 Console.WriteLine(result.GetProperty("largeFaceListId").ToString());
 ]]></code></example>
     </member>
-    <member name="UpdateAsync(string,RequestContent,RequestContext)">
+    <member name="UpdateAsync(RequestContent,RequestContext)">
       <example>
 This sample shows how to call UpdateAsync.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
 using RequestContent content = RequestContent.Create(new
 {
     name = "your_large_face_list_name",
     userData = "your_user_data",
 });
-Response response = await client.UpdateAsync("your_large_face_list_id", content);
+Response response = await client.UpdateAsync(content);
 
 Console.WriteLine(response.Status);
 ]]></code></example>
     </member>
-    <member name="Update(string,RequestContent,RequestContext)">
+    <member name="Update(RequestContent,RequestContext)">
       <example>
 This sample shows how to call Update.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
 using RequestContent content = RequestContent.Create(new
 {
     name = "your_large_face_list_name",
     userData = "your_user_data",
 });
-Response response = client.Update("your_large_face_list_id", content);
+Response response = client.Update(content);
 
 Console.WriteLine(response.Status);
 ]]></code></example>
@@ -181,7 +181,7 @@ This sample shows how to call GetLargeFaceListsAsync.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient(null);
 
 Response<IReadOnlyList<LargeFaceList>> response = await client.GetLargeFaceListsAsync();
 ]]></code></example>
@@ -192,7 +192,7 @@ This sample shows how to call GetLargeFaceLists.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient(null);
 
 Response<IReadOnlyList<LargeFaceList>> response = client.GetLargeFaceLists();
 ]]></code></example>
@@ -203,7 +203,7 @@ This sample shows how to call GetLargeFaceListsAsync and parse the result.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient(null);
 
 Response response = await client.GetLargeFaceListsAsync("my_list_id", 20, true, null);
 
@@ -218,7 +218,7 @@ This sample shows how to call GetLargeFaceLists and parse the result.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient(null);
 
 Response response = client.GetLargeFaceLists("my_list_id", 20, true, null);
 
@@ -227,37 +227,37 @@ Console.WriteLine(result[0].GetProperty("name").ToString());
 Console.WriteLine(result[0].GetProperty("largeFaceListId").ToString());
 ]]></code></example>
     </member>
-    <member name="GetTrainingStatusAsync(string,CancellationToken)">
+    <member name="GetTrainingStatusAsync(CancellationToken)">
       <example>
 This sample shows how to call GetTrainingStatusAsync.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response<FaceTrainingResult> response = await client.GetTrainingStatusAsync("your_large_face_list_id");
+Response<FaceTrainingResult> response = await client.GetTrainingStatusAsync();
 ]]></code></example>
     </member>
-    <member name="GetTrainingStatus(string,CancellationToken)">
+    <member name="GetTrainingStatus(CancellationToken)">
       <example>
 This sample shows how to call GetTrainingStatus.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response<FaceTrainingResult> response = client.GetTrainingStatus("your_large_face_list_id");
+Response<FaceTrainingResult> response = client.GetTrainingStatus();
 ]]></code></example>
     </member>
-    <member name="GetTrainingStatusAsync(string,RequestContext)">
+    <member name="GetTrainingStatusAsync(RequestContext)">
       <example>
 This sample shows how to call GetTrainingStatusAsync and parse the result.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response response = await client.GetTrainingStatusAsync("your_large_face_list_id", null);
+Response response = await client.GetTrainingStatusAsync(null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("status").ToString());
@@ -266,15 +266,15 @@ Console.WriteLine(result.GetProperty("lastActionDateTime").ToString());
 Console.WriteLine(result.GetProperty("lastSuccessfulTrainingDateTime").ToString());
 ]]></code></example>
     </member>
-    <member name="GetTrainingStatus(string,RequestContext)">
+    <member name="GetTrainingStatus(RequestContext)">
       <example>
 This sample shows how to call GetTrainingStatus and parse the result.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response response = client.GetTrainingStatus("your_large_face_list_id", null);
+Response response = client.GetTrainingStatus(null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("status").ToString());
@@ -283,186 +283,186 @@ Console.WriteLine(result.GetProperty("lastActionDateTime").ToString());
 Console.WriteLine(result.GetProperty("lastSuccessfulTrainingDateTime").ToString());
 ]]></code></example>
     </member>
-    <member name="DeleteFaceAsync(string,Guid,RequestContext)">
+    <member name="DeleteFaceAsync(Guid,RequestContext)">
       <example>
 This sample shows how to call DeleteFaceAsync.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response response = await client.DeleteFaceAsync("your_large_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
+Response response = await client.DeleteFaceAsync(Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
 
 Console.WriteLine(response.Status);
 ]]></code></example>
     </member>
-    <member name="DeleteFace(string,Guid,RequestContext)">
+    <member name="DeleteFace(Guid,RequestContext)">
       <example>
 This sample shows how to call DeleteFace.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response response = client.DeleteFace("your_large_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
+Response response = client.DeleteFace(Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
 
 Console.WriteLine(response.Status);
 ]]></code></example>
     </member>
-    <member name="GetFaceAsync(string,Guid,CancellationToken)">
+    <member name="GetFaceAsync(Guid,CancellationToken)">
       <example>
 This sample shows how to call GetFaceAsync.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response<LargeFaceListFace> response = await client.GetFaceAsync("your_large_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
+Response<LargeFaceListFace> response = await client.GetFaceAsync(Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
 ]]></code></example>
     </member>
-    <member name="GetFace(string,Guid,CancellationToken)">
+    <member name="GetFace(Guid,CancellationToken)">
       <example>
 This sample shows how to call GetFace.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response<LargeFaceListFace> response = client.GetFace("your_large_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
+Response<LargeFaceListFace> response = client.GetFace(Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"));
 ]]></code></example>
     </member>
-    <member name="GetFaceAsync(string,Guid,RequestContext)">
+    <member name="GetFaceAsync(Guid,RequestContext)">
       <example>
 This sample shows how to call GetFaceAsync and parse the result.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response response = await client.GetFaceAsync("your_large_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"), null);
+Response response = await client.GetFaceAsync(Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"), null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("persistedFaceId").ToString());
 ]]></code></example>
     </member>
-    <member name="GetFace(string,Guid,RequestContext)">
+    <member name="GetFace(Guid,RequestContext)">
       <example>
 This sample shows how to call GetFace and parse the result.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response response = client.GetFace("your_large_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"), null);
+Response response = client.GetFace(Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"), null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result.GetProperty("persistedFaceId").ToString());
 ]]></code></example>
     </member>
-    <member name="UpdateFaceAsync(string,Guid,RequestContent,RequestContext)">
+    <member name="UpdateFaceAsync(Guid,RequestContent,RequestContext)">
       <example>
 This sample shows how to call UpdateFaceAsync.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
 using RequestContent content = RequestContent.Create(new
 {
     userData = "your_user_data",
 });
-Response response = await client.UpdateFaceAsync("your_large_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"), content);
+Response response = await client.UpdateFaceAsync(Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"), content);
 
 Console.WriteLine(response.Status);
 ]]></code></example>
     </member>
-    <member name="UpdateFace(string,Guid,RequestContent,RequestContext)">
+    <member name="UpdateFace(Guid,RequestContent,RequestContext)">
       <example>
 This sample shows how to call UpdateFace.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
 using RequestContent content = RequestContent.Create(new
 {
     userData = "your_user_data",
 });
-Response response = client.UpdateFace("your_large_face_list_id", Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"), content);
+Response response = client.UpdateFace(Guid.Parse("43897a75-8d6f-42cf-885e-74832febb055"), content);
 
 Console.WriteLine(response.Status);
 ]]></code></example>
     </member>
-    <member name="GetFacesAsync(string,string,int?,CancellationToken)">
+    <member name="GetFacesAsync(string,int?,CancellationToken)">
       <example>
 This sample shows how to call GetFacesAsync.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response<IReadOnlyList<LargeFaceListFace>> response = await client.GetFacesAsync("your_large_face_list_id");
+Response<IReadOnlyList<LargeFaceListFace>> response = await client.GetFacesAsync();
 ]]></code></example>
     </member>
-    <member name="GetFaces(string,string,int?,CancellationToken)">
+    <member name="GetFaces(string,int?,CancellationToken)">
       <example>
 This sample shows how to call GetFaces.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response<IReadOnlyList<LargeFaceListFace>> response = client.GetFaces("your_large_face_list_id");
+Response<IReadOnlyList<LargeFaceListFace>> response = client.GetFaces();
 ]]></code></example>
     </member>
-    <member name="GetFacesAsync(string,string,int?,RequestContext)">
+    <member name="GetFacesAsync(string,int?,RequestContext)">
       <example>
 This sample shows how to call GetFacesAsync and parse the result.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response response = await client.GetFacesAsync("your_large_face_list_id", "00000000-0000-0000-0000-000000000000", 20, null);
+Response response = await client.GetFacesAsync("00000000-0000-0000-0000-000000000000", 20, null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result[0].GetProperty("persistedFaceId").ToString());
 ]]></code></example>
     </member>
-    <member name="GetFaces(string,string,int?,RequestContext)">
+    <member name="GetFaces(string,int?,RequestContext)">
       <example>
 This sample shows how to call GetFaces and parse the result.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Response response = client.GetFaces("your_large_face_list_id", "00000000-0000-0000-0000-000000000000", 20, null);
+Response response = client.GetFaces("00000000-0000-0000-0000-000000000000", 20, null);
 
 JsonElement result = JsonDocument.Parse(response.ContentStream).RootElement;
 Console.WriteLine(result[0].GetProperty("persistedFaceId").ToString());
 ]]></code></example>
     </member>
-    <member name="TrainAsync(WaitUntil,string,RequestContext)">
+    <member name="TrainAsync(WaitUntil,RequestContext)">
       <example>
 This sample shows how to call TrainAsync.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Operation operation = await client.TrainAsync(WaitUntil.Completed, "your_large_face_list_id");
+Operation operation = await client.TrainAsync(WaitUntil.Completed);
 ]]></code></example>
     </member>
-    <member name="Train(WaitUntil,string,RequestContext)">
+    <member name="Train(WaitUntil,RequestContext)">
       <example>
 This sample shows how to call Train.
 <code><![CDATA[
 Uri endpoint = new Uri("<endpoint>");
 AzureKeyCredential credential = new AzureKeyCredential("<key>");
-LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient();
+LargeFaceListClient client = new FaceAdministrationClient(endpoint, credential).GetLargeFaceListClient("your_large_face_list_id");
 
-Operation operation = client.Train(WaitUntil.Completed, "your_large_face_list_id");
+Operation operation = client.Train(WaitUntil.Completed);
 ]]></code></example>
     </member>
   </members>
