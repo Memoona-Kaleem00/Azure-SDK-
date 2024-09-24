@@ -81,39 +81,6 @@ namespace Azure.AI.Vision.Face
             return new LargePersonGroupPersonFace(persistedFaceId, userData, serializedAdditionalRawData: null);
         }
 
-        /// <summary> Initializes a new instance of <see cref="Face.PersonGroup"/>. </summary>
-        /// <param name="name"> User defined name, maximum length is 128. </param>
-        /// <param name="userData"> Optional user defined data. Length should not exceed 16K. </param>
-        /// <param name="recognitionModel"> Name of recognition model. Recognition model is used when the face features are extracted and associated with detected faceIds. </param>
-        /// <param name="personGroupId"> ID of the container. </param>
-        /// <returns> A new <see cref="Face.PersonGroup"/> instance for mocking. </returns>
-        public static PersonGroup PersonGroup(string name = null, string userData = null, FaceRecognitionModel? recognitionModel = null, string personGroupId = null)
-        {
-            return new PersonGroup(name, userData, recognitionModel, personGroupId, serializedAdditionalRawData: null);
-        }
-
-        /// <summary> Initializes a new instance of <see cref="Face.PersonGroupPerson"/>. </summary>
-        /// <param name="personId"> ID of the person. </param>
-        /// <param name="name"> User defined name, maximum length is 128. </param>
-        /// <param name="userData"> Optional user defined data. Length should not exceed 16K. </param>
-        /// <param name="persistedFaceIds"> Face ids of registered faces in the person. </param>
-        /// <returns> A new <see cref="Face.PersonGroupPerson"/> instance for mocking. </returns>
-        public static PersonGroupPerson PersonGroupPerson(Guid personId = default, string name = null, string userData = null, IEnumerable<Guid> persistedFaceIds = null)
-        {
-            persistedFaceIds ??= new List<Guid>();
-
-            return new PersonGroupPerson(personId, name, userData, persistedFaceIds?.ToList(), serializedAdditionalRawData: null);
-        }
-
-        /// <summary> Initializes a new instance of <see cref="Face.PersonGroupPersonFace"/>. </summary>
-        /// <param name="persistedFaceId"> Face ID of the face. </param>
-        /// <param name="userData"> User-provided data attached to the face. The length limit is 1K. </param>
-        /// <returns> A new <see cref="Face.PersonGroupPersonFace"/> instance for mocking. </returns>
-        public static PersonGroupPersonFace PersonGroupPersonFace(Guid persistedFaceId = default, string userData = null)
-        {
-            return new PersonGroupPersonFace(persistedFaceId, userData, serializedAdditionalRawData: null);
-        }
-
         /// <summary> Initializes a new instance of <see cref="Face.LargeFaceList"/>. </summary>
         /// <param name="name"> User defined name, maximum length is 128. </param>
         /// <param name="userData"> Optional user defined data. Length should not exceed 16K. </param>
@@ -132,46 +99,6 @@ namespace Azure.AI.Vision.Face
         public static LargeFaceListFace LargeFaceListFace(Guid persistedFaceId = default, string userData = null)
         {
             return new LargeFaceListFace(persistedFaceId, userData, serializedAdditionalRawData: null);
-        }
-
-        /// <summary> Initializes a new instance of <see cref="Face.FaceList"/>. </summary>
-        /// <param name="name"> User defined name, maximum length is 128. </param>
-        /// <param name="userData"> Optional user defined data. Length should not exceed 16K. </param>
-        /// <param name="recognitionModel"> Name of recognition model. Recognition model is used when the face features are extracted and associated with detected faceIds. </param>
-        /// <param name="faceListId"> Valid character is letter in lower case or digit or '-' or '_', maximum length is 64. </param>
-        /// <param name="persistedFaces"> Face ids of registered faces in the face list. </param>
-        /// <returns> A new <see cref="Face.FaceList"/> instance for mocking. </returns>
-        public static FaceList FaceList(string name = null, string userData = null, FaceRecognitionModel? recognitionModel = null, string faceListId = null, IEnumerable<FaceListFace> persistedFaces = null)
-        {
-            persistedFaces ??= new List<FaceListFace>();
-
-            return new FaceList(
-                name,
-                userData,
-                recognitionModel,
-                faceListId,
-                persistedFaces?.ToList(),
-                serializedAdditionalRawData: null);
-        }
-
-        /// <summary> Initializes a new instance of <see cref="Face.FaceListFace"/>. </summary>
-        /// <param name="persistedFaceId"> Face ID of the face. </param>
-        /// <param name="userData"> User-provided data attached to the face. The length limit is 1K. </param>
-        /// <returns> A new <see cref="Face.FaceListFace"/> instance for mocking. </returns>
-        public static FaceListFace FaceListFace(Guid persistedFaceId = default, string userData = null)
-        {
-            return new FaceListFace(persistedFaceId, userData, serializedAdditionalRawData: null);
-        }
-
-        /// <summary> Initializes a new instance of <see cref="Face.FaceListItem"/>. </summary>
-        /// <param name="name"> User defined name, maximum length is 128. </param>
-        /// <param name="userData"> Optional user defined data. Length should not exceed 16K. </param>
-        /// <param name="recognitionModel"> Name of recognition model. Recognition model is used when the face features are extracted and associated with detected faceIds. </param>
-        /// <param name="faceListId"> Valid character is letter in lower case or digit or '-' or '_', maximum length is 64. </param>
-        /// <returns> A new <see cref="Face.FaceListItem"/> instance for mocking. </returns>
-        public static FaceListItem FaceListItem(string name = null, string userData = null, FaceRecognitionModel? recognitionModel = null, string faceListId = null)
-        {
-            return new FaceListItem(name, userData, recognitionModel, faceListId, serializedAdditionalRawData: null);
         }
 
         /// <summary> Initializes a new instance of <see cref="Face.FaceDetectionResult"/>. </summary>
@@ -632,7 +559,7 @@ namespace Azure.AI.Vision.Face
                 serializedAdditionalRawData: null);
         }
 
-        /// <summary> Initializes a new instance of <see cref="Face.CreateLivenessWithVerifySessionJsonContent"/>. </summary>
+        /// <summary> Initializes a new instance of <see cref="Face.CreateLivenessWithVerifySessionContent"/>. </summary>
         /// <param name="livenessOperationMode"> Type of liveness mode the client should follow. </param>
         /// <param name="sendResultsToClient"> Whether or not to allow a '200 - Success' response body to be sent to the client, which may be undesirable for security reasons. Default is false, clients will receive a '204 - NoContent' empty body response. Regardless of selection, calling Session GetResult will always contain a response body enabling business logic to be implemented. </param>
         /// <param name="deviceCorrelationIdSetInClient"> Whether or not to allow client to set their own 'deviceCorrelationId' via the Vision SDK. Default is false, and 'deviceCorrelationId' must be set in this request body. </param>
@@ -642,10 +569,10 @@ namespace Azure.AI.Vision.Face
         /// <param name="authTokenTimeToLiveInSeconds"> Seconds the session should last for. Range is 60 to 86400 seconds. Default value is 600. </param>
         /// <param name="returnVerifyImageHash"> Whether or not return the verify image hash. </param>
         /// <param name="verifyConfidenceThreshold"> Threshold for confidence of the face verification. </param>
-        /// <returns> A new <see cref="Face.CreateLivenessWithVerifySessionJsonContent"/> instance for mocking. </returns>
-        public static CreateLivenessWithVerifySessionJsonContent CreateLivenessWithVerifySessionJsonContent(LivenessOperationMode livenessOperationMode = default, bool? sendResultsToClient = null, bool? deviceCorrelationIdSetInClient = null, bool? enableSessionImage = null, LivenessModel? livenessSingleModalModel = null, string deviceCorrelationId = null, int? authTokenTimeToLiveInSeconds = null, bool? returnVerifyImageHash = null, float? verifyConfidenceThreshold = null)
+        /// <returns> A new <see cref="Face.CreateLivenessWithVerifySessionContent"/> instance for mocking. </returns>
+        public static CreateLivenessWithVerifySessionContent CreateLivenessWithVerifySessionContent(LivenessOperationMode livenessOperationMode = default, bool? sendResultsToClient = null, bool? deviceCorrelationIdSetInClient = null, bool? enableSessionImage = null, LivenessModel? livenessSingleModalModel = null, string deviceCorrelationId = null, int? authTokenTimeToLiveInSeconds = null, bool? returnVerifyImageHash = null, float? verifyConfidenceThreshold = null)
         {
-            return new CreateLivenessWithVerifySessionJsonContent(
+            return new CreateLivenessWithVerifySessionContent(
                 livenessOperationMode,
                 sendResultsToClient,
                 deviceCorrelationIdSetInClient,

@@ -73,9 +73,9 @@ namespace Azure.AI.Vision.Face
             Argument.AssertNotNullOrEmpty(largeFaceListId, nameof(largeFaceListId));
             Argument.AssertNotNull(name, nameof(name));
 
-            CreateRequest2 createRequest2 = new CreateRequest2(name, userData, recognitionModel, null);
+            CreateRequest1 createRequest1 = new CreateRequest1(name, userData, recognitionModel, null);
             RequestContext context = FromCancellationToken(cancellationToken);
-            Response response = await CreateAsync(largeFaceListId, createRequest2.ToRequestContent(), context).ConfigureAwait(false);
+            Response response = await CreateAsync(largeFaceListId, createRequest1.ToRequestContent(), context).ConfigureAwait(false);
             return response;
         }
 
@@ -94,9 +94,9 @@ namespace Azure.AI.Vision.Face
             Argument.AssertNotNullOrEmpty(largeFaceListId, nameof(largeFaceListId));
             Argument.AssertNotNull(name, nameof(name));
 
-            CreateRequest2 createRequest2 = new CreateRequest2(name, userData, recognitionModel, null);
+            CreateRequest1 createRequest1 = new CreateRequest1(name, userData, recognitionModel, null);
             RequestContext context = FromCancellationToken(cancellationToken);
-            Response response = Create(largeFaceListId, createRequest2.ToRequestContent(), context);
+            Response response = Create(largeFaceListId, createRequest1.ToRequestContent(), context);
             return response;
         }
 
@@ -689,9 +689,9 @@ namespace Azure.AI.Vision.Face
             Argument.AssertNotNullOrEmpty(largeFaceListId, nameof(largeFaceListId));
             Argument.AssertNotNull(uri, nameof(uri));
 
-            AddFaceFromUrlRequest2 addFaceFromUrlRequest2 = new AddFaceFromUrlRequest2(uri, null);
+            AddFaceFromUrlRequest1 addFaceFromUrlRequest1 = new AddFaceFromUrlRequest1(uri, null);
             RequestContext context = FromCancellationToken(cancellationToken);
-            Response response = await AddFaceFromUrlImplAsync(largeFaceListId, addFaceFromUrlRequest2.ToRequestContent(), targetFace, detectionModel?.ToString(), userData, context).ConfigureAwait(false);
+            Response response = await AddFaceFromUrlImplAsync(largeFaceListId, addFaceFromUrlRequest1.ToRequestContent(), targetFace, detectionModel?.ToString(), userData, context).ConfigureAwait(false);
             return Response.FromValue(AddFaceResult.FromResponse(response), response);
         }
 
@@ -710,9 +710,9 @@ namespace Azure.AI.Vision.Face
             Argument.AssertNotNullOrEmpty(largeFaceListId, nameof(largeFaceListId));
             Argument.AssertNotNull(uri, nameof(uri));
 
-            AddFaceFromUrlRequest2 addFaceFromUrlRequest2 = new AddFaceFromUrlRequest2(uri, null);
+            AddFaceFromUrlRequest1 addFaceFromUrlRequest1 = new AddFaceFromUrlRequest1(uri, null);
             RequestContext context = FromCancellationToken(cancellationToken);
-            Response response = AddFaceFromUrlImpl(largeFaceListId, addFaceFromUrlRequest2.ToRequestContent(), targetFace, detectionModel?.ToString(), userData, context);
+            Response response = AddFaceFromUrlImpl(largeFaceListId, addFaceFromUrlRequest1.ToRequestContent(), targetFace, detectionModel?.ToString(), userData, context);
             return Response.FromValue(AddFaceResult.FromResponse(response), response);
         }
 

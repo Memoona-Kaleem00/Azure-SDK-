@@ -99,27 +99,13 @@ namespace Azure.AI.Vision.Face
             _apiVersion = options.Version;
         }
 
-        private FaceListClient _cachedFaceListClient;
         private LargeFaceListClient _cachedLargeFaceListClient;
-        private PersonGroupClient _cachedPersonGroupClient;
         private LargePersonGroupClient _cachedLargePersonGroupClient;
-
-        /// <summary> Initializes a new instance of FaceListClient. </summary>
-        public virtual FaceListClient GetFaceListClient()
-        {
-            return Volatile.Read(ref _cachedFaceListClient) ?? Interlocked.CompareExchange(ref _cachedFaceListClient, new FaceListClient(ClientDiagnostics, _pipeline, _keyCredential, _tokenCredential, _endpoint, _apiVersion), null) ?? _cachedFaceListClient;
-        }
 
         /// <summary> Initializes a new instance of LargeFaceListClient. </summary>
         public virtual LargeFaceListClient GetLargeFaceListClient()
         {
             return Volatile.Read(ref _cachedLargeFaceListClient) ?? Interlocked.CompareExchange(ref _cachedLargeFaceListClient, new LargeFaceListClient(ClientDiagnostics, _pipeline, _keyCredential, _tokenCredential, _endpoint, _apiVersion), null) ?? _cachedLargeFaceListClient;
-        }
-
-        /// <summary> Initializes a new instance of PersonGroupClient. </summary>
-        public virtual PersonGroupClient GetPersonGroupClient()
-        {
-            return Volatile.Read(ref _cachedPersonGroupClient) ?? Interlocked.CompareExchange(ref _cachedPersonGroupClient, new PersonGroupClient(ClientDiagnostics, _pipeline, _keyCredential, _tokenCredential, _endpoint, _apiVersion), null) ?? _cachedPersonGroupClient;
         }
 
         /// <summary> Initializes a new instance of LargePersonGroupClient. </summary>
