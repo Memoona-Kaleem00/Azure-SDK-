@@ -40,6 +40,34 @@ namespace Azure.AI.Vision.Face.Samples
             return sessionClient;
         }
 
+        public LargePersonGroupClient CreateLargePersonGroupClient(string id)
+        {
+            #region Snippet:CreateLargePersonGroupClient
+#if SNIPPET
+            Uri endpoint = new Uri("<your endpoint>");
+#else
+            var endpoint = TestEnvironment.GetUrlVariable("FACE_ENDPOINT");
+#endif
+            DefaultAzureCredential credential = new DefaultAzureCredential();
+            var groupClient = new LargePersonGroupClient(id, endpoint, credential);
+            #endregion
+            return groupClient;
+        }
+
+        public LargeFaceListClient CreateLargeFaceListClient(string id)
+        {
+            #region Snippet:CreateLargeFaceListClient
+#if SNIPPET
+            Uri endpoint = new Uri("<your endpoint>");
+#else
+            var endpoint = TestEnvironment.GetUrlVariable("FACE_ENDPOINT");
+#endif
+            DefaultAzureCredential credential = new DefaultAzureCredential();
+            var listClient = new LargeFaceListClient(id, endpoint, credential);
+            #endregion
+            return listClient;
+        }
+
         public FaceClient CreateClientWithKey()
         {
             #region Snippet:CreateFaceClientWithKey
